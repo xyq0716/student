@@ -1,0 +1,289 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    color: #b3bcc5;
+    background-position:center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+:root,body{  /*没高度，相对于适口（只对html起作用）有高度*/
+    height: 100%;
+}
+
+.wrapper{
+    position: relative;
+    width:100%;
+    height: 100%;
+    background-color: #eee;
+}
+
+.wrapper .header{
+    height: 70px;
+    background-color: #354457;
+    line-height: 30px;
+}
+
+.wrapper .header .logo{
+    width:200px;
+    height: 100%;
+    line-height: 70px;
+    padding-left: 20px;
+}
+
+.wrapper .header .logo img{
+    display: inline-block;
+    width:30px;
+    height: 30px;
+    vertical-align: middle; /*文字和图片一起默认图片按照文字底基准线对齐 */
+}
+
+.wrapper .left-menu{
+    position: absolute;
+    left: 0;
+    width:200px;
+    height: calc(100% - 70px); /*左侧导航条占满剩余适口，用clac计算*/
+    background-color: #4d5e70;
+}
+
+dl dt,dl dd{
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+dl dd{
+    padding-left: 30px;
+}
+
+dl dd:hover{
+    color: #354457;
+    background-color: rgba(255,255,255,0.5);
+}
+
+dl dt{
+    padding-left: 8px;
+    font-weight: bold;
+}
+
+dl dd.active{
+    background-color: #ddd;
+    color:#354457;
+}
+
+.wrapper .right-content{
+    position: absolute;
+    right: 0;
+    width:calc(100% - 200px);
+    height: calc(100% - 70px);
+}
+
+/* 两栏布局的三种方式：         缺陷：
+1.float:left                产生浮动流  ———— 为父级清浮动流clear:both;
+2.display:inline-block      存在文字间隙 ———— 给父级设置font-size:0;
+3.position:absolute         定位固定
+*/
+
+.add-student-form{
+    width:400px;
+    margin:50px auto;
+}
+
+.add-student-form label, #add-student-form input{
+    font-size: 16px;
+    color: #354457;
+}
+
+.add-student-form div{
+    margin:10px 0px;
+}
+
+.add-student-form label{
+    width:80px;
+    text-align: right;
+    display: inline-block;
+}
+
+.add-student-form .btn{
+    padding: 5px 30px;
+}
+
+.add-student-form .sex span{
+    margin-left: 10px;
+    font-size: 16px;
+    color: #354457;
+}
+
+.add-student{
+    display:none;
+}
+
+.student-list{
+    display: none;
+}
+
+.student-list table, .student-list table tr th, .student-list table tr td{
+    font-size: 14px;
+    text-align: center;
+}
+
+.student-list table{
+    width:100%;
+}
+
+.student-list table thead{
+    background-color: #e3e8ee;
+}
+
+.student-list table tbody{
+    background-color: #fff;
+}
+
+table tr th{
+    color:#646987;
+}
+
+table tr td{
+    color:#354457;
+    min-width:100px; /*设置最小宽度，压缩变形时出现滚动条，防止换行*/
+}
+
+table tr th, table tr td{
+    padding: 10px 0;
+}
+
+table button.btn{
+    padding: 3px 10px;
+    border:none;
+    color: #fff;
+    cursor: pointer;
+}
+
+table button.btn.edit{
+    background-color: #5cb85c;
+}
+
+table button.btn.edit:hover{
+    background-color: #398439;
+}
+
+table button.btn.del{
+    background-color: #d9534f;
+}
+
+table button.btn.del:hover{
+    background-color: #d9534f;
+}
+
+.modal{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
+
+.modal.show{
+    display: block; /*当modal有'show'这个类名的时候显示*/
+}
+
+.modal .mask{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal .modal-content{
+    background-color: #fff;
+    position: absolute;
+    width:500px;
+    height: 450px;
+    left:calc(50% - 250px);
+    top:calc(50% - 225px);
+    padding: 20px;
+}
+
+.modal .modal-content h2{
+    font-size: 16px;
+    color:#354457;
+}
+
+.modal .modal-content input{
+    color:#354457;
+}
+
+.modal .modal-content .close{
+    position: absolute;
+    right: 4px;
+    top:4px;
+    width:18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    border:1px solid #ddd;
+    border-radius: 3px;
+    cursor:pointer;
+}
+
+#turn-page {
+    float: right;
+    /* border: 1px solid #000; */
+    margin: 10px;
+}
+#turn-page li {
+    display: inline-block;
+    padding: 3px 10px;
+    border: 1px solid #ddd;
+    height: 25px;
+    line-height: 25px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+#turn-page li.cur-page {
+    background-color: #428bca;
+    border: 1px solid #428bca;
+    color: #fff;
+}
+
+.search {
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+    padding: 0px 20px;
+    background-color: #eee;
+}
+.search label {
+    font-size: 16px;
+    color: #646987;
+    font-weight: 800;
+}
+
+.search input {
+    font-size: 16px;
+    width: 200px;
+    height: 30px;
+    border: none;
+    outline: none;
+}
+#search-submit {
+    height: 28px;
+    line-height: 28px;
+    padding: 0 10px;
+    outline: none;
+    display: inline-block;
+    border: none;
+    background-color: #354457;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    vertical-align: center;
+    /* border: 1px solid #000; */
+}
+#search-submit:hover {
+    background: #1e2936;
+}
